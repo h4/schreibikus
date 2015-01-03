@@ -3,6 +3,10 @@ package main
 import (
 	"net/http";
 	"net/url";
+	"fmt";
+	"io/ioutil";
+	"log";
+	"strconv";
 )
 
 type credertial struct {
@@ -15,9 +19,9 @@ func SendSMS(params credertial, to string, message string) {
 	v := url.Values{}
 	u := url.URL{}
 
-	v.Add("id", string(params.api_id))
+	v.Add("id", strconv.Itoa(params.api_id))
 	v.Add("key", params.api_key)
-	v.Add("ti", to)
+	v.Add("to", to)
 	v.Add("from", params.api_sender)
 	v.Add("text", message)
 
@@ -26,5 +30,10 @@ func SendSMS(params credertial, to string, message string) {
 	u.Path = "send"
 	u.RawQuery = v.Encode()
 
-	http.Get(u.String())
+	fmt.Printf("%s\n", u.String())
+
+	_, err := http.Get(u.String())
+	if err != nil {
+		log.Fatal(err)
+	}
 }

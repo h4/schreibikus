@@ -24,7 +24,7 @@ func main() {
 		*source_root = config.GetString("source_root")
 		*dest_root = config.GetString("dest_root")
 
-		if (config.GetInt("api_idsss") != -1) {
+		if (config.GetInt("api_id") != -1) {
 			sms_params.api_id = config.GetInt("api_id")
 			sms_params.api_key = config.GetString("api_key")
 			sms_params.api_sender = config.GetString("api_sender")
