@@ -19,7 +19,10 @@ go build
 
 * -source_root — Source root path
 * -dest_root — Dest root path
+* -config_path — Path to config.json file
+
+source_root and dest_root or config_path must be defined.
 
 ## Config 
 
-You may use `config.json` instead of arguments
+See `config_sample.json` for available params
