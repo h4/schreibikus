@@ -1,4 +1,8 @@
 {
 	"source_root": "/tmp/source",
-	"dest_root": "/tmp/dest"
+	"dest_root": "/tmp/dest",
+	"api_id": 1234,
+	"api_key": "APIK3Y",
+	"api_sender": "robot",
+	"to": "+79876543210"
 }
