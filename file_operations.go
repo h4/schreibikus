@@ -5,6 +5,7 @@ import (
 	"log";
 	"fmt";
 	"path";
+	"path/filepath";
 	"os";
 	"strings";
 	)
@@ -85,8 +86,8 @@ func IsFileToMove(file os.FileInfo) bool {
 		return false
 	}
 
-	fname := strings.ToLower((file.Name()))
+	ext := strings.ToLower(filepath.Ext(file.Name()))
 
-	// Todo: multiple suffixes, move suffix to config
-	return strings.HasSuffix(fname, ".nef")
+	// Todo: move suffix to config
+	return ext == ".nef" || ext == ".jpg"
 }
